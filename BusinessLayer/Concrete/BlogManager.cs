@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Abstract;
+﻿using System;
+using BusinessLayer.Abstract;
 using DaraAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System.Collections.Generic;
@@ -48,6 +49,11 @@ namespace BusinessLayer.Concrete
         {
 
             return _blogDal.GetListWithCategory();
+        }
+
+        public List<Blog> GetBlogListByWriter(int id)
+        {
+            return _blogDal.GetListAll(x => x.WriterId == id);
         }
     }
 }

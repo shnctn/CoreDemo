@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Concrete;
 using DaraAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 
 namespace CoreDemo.Controllers
 {
@@ -15,12 +16,20 @@ namespace CoreDemo.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public PartialViewResult PartialAddComment()
         {
             return PartialView();
         }
-
+        [HttpPost]
+        public PartialViewResult PartialAddComment(Comment c)
+        {
+            c.CommentDate=DateTime.Parse(DateTime.Now.ToShortDateString());
+            c.CommentStatus = true;
+            c.BlogId =2;
+            cmm.AddComment(c);
+            return PartialView();
+        }
         public PartialViewResult CommentListbyBlog(int id)
         {
             var values=cmm.GetList(id);

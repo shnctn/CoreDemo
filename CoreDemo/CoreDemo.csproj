@@ -23,4 +23,8 @@
     <ProjectReference Include="..\DaraAccessLayer\DaraAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewComponents\NewsLetter\" />
+  </ItemGroup>
+
 </Project>

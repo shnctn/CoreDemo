@@ -17,6 +17,8 @@ namespace EntityLayer.Concrete
         public bool BlogStatus { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+        public int? WriterId { get; set; }
+        public virtual Writer Writer { get; set; }
 
         public List<Comment> Comment { get; set; }
     }
